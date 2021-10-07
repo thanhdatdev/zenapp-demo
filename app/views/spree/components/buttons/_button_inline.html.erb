@@ -1,0 +1,23 @@
+<%
+  base_class = "button-inline".freeze
+
+  # Optional props
+  disabled = local_assigns.fetch(:disabled, false)
+  id = local_assigns.fetch(:id, false)
+  name = local_assigns.fetch(:name, nil)
+  type = local_assigns.fetch(:type, 'button')
+
+  # Classes
+  class_names = [base_class]
+  class_names = class_names.join(" ")
+%>
+
+<%= button_tag(
+  class: class_names,
+  disabled: disabled,
+  id: id,
+  name: name,
+  type: type
+) do %>
+  <%= content %>
+<% end %>

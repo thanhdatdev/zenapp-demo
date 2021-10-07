@@ -1,0 +1,19 @@
+.checkout-header {
+  margin-bottom: 2rem;
+
+  @include tablet {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-right: 0;
+
+    @include tablet {
+      margin-right: 20px;
+    }
+  }
+}
