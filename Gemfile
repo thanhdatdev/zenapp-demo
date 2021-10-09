@@ -60,5 +60,6 @@ gem "rspec-rails", "~> 5.0", :groups => [:development, :test]
 gem 'solidus_auth_devise'
 gem 'solidus_paypal_commerce_platform'
 gem 'solidus_add_purchase_policies_to_admin_panel', path: '/Users/thanhdatdev/workspace/solidus_add_purchase_policies_to_admin_panel'
+gem 'solidus_collaborators', path: '/Users/thanhdatdev/workspace/solidus_collaborators'
 gem 'canonical-rails'
 gem 'truncate_html'

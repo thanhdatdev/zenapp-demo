@@ -5,6 +5,13 @@ PATH
       solidus_core (>= 2.0.0, < 4)
       solidus_support (~> 0.5)
 
+PATH
+  remote: /Users/thanhdatdev/workspace/solidus_collaborators
+  specs:
+    solidus_collaborators (0.0.1)
+      solidus_core (>= 2.0.0, < 4)
+      solidus_support (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -404,6 +411,7 @@ DEPENDENCIES
   solidus_api (~> 3.1)
   solidus_auth_devise
   solidus_backend (~> 3.1)
+  solidus_collaborators!
   solidus_core (~> 3.1)
   solidus_paypal_commerce_platform
   solidus_sample (~> 3.1)

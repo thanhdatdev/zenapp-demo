@@ -51,7 +51,6 @@ module Spree
     def populate
       @order = current_order(create_order_if_necessary: true)
       authorize! :update, @order, cookies.signed[:guest_token]
-
       variant  = Spree::Variant.find(params[:variant_id])
       quantity = params[:quantity].present? ? params[:quantity].to_i : 1
 

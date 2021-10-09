@@ -34,6 +34,15 @@ module Zenapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # Load monkey patches
+    monkey_patches = "#{Rails.root}/app/monkey_patches"
+    Rails.autoloaders.main.ignore(monkey_patches)
+    config.to_prepare do
+      Dir.glob("#{monkey_patches}/**/*_monkey_patch.rb").each do |monkey_patch|
+        load monkey_patch
+      end
+    end
+
     config.autoloader = :classic
 
     # Configuration for the application, engines, and railties goes here.

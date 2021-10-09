@@ -18,6 +18,7 @@ Spree::Core::Engine.routes.draw do
 
   resources :orders, except: [:index, :new, :create, :destroy] do
     post :populate, on: :collection
+    post :populate_home_page, on: :collection
     resources :coupon_codes, only: :create
   end
 

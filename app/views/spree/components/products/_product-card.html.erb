@@ -31,6 +31,9 @@
         <% end %>
         <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
       </section>
+      <section>
+        <%= render 'spree/components/products/product_form_home_page', product: product  %>
+      </section>
     </article>
   </li>
 <% end %>

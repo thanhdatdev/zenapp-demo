@@ -13,6 +13,12 @@
       <%= render 'spree/components/products/product_promotions' %>
       <%= render 'spree/components/products/product_form' %>
       <%= render 'spree/components/products/product_taxons' %>
+      <div class="product-page-similar">
+      <h2> You May Also Like </h2>
+        <%= render partial: 'spree/components/products/products', locals: { products: @similar_products } %>
+      </div>
     </div>
+
+
   </article>
 <% end %>
