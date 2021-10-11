@@ -1,29 +1,43 @@
+<%= canonical_tag -%>
 <%
   paginated_products = @searcher.retrieve_products if params.key?(:keywords)
   paginated_products ||= products
   no_products_found = products.empty?
 %>
 
-<% content_for :head do %>
-  <% if paginated_products.respond_to?(:total_pages) %>
-    <%= rel_next_prev_link_tags paginated_products %>
+  <% content_for :head do %>
+    <% if paginated_products.respond_to?(:total_pages) %>
+      <%= rel_next_prev_link_tags paginated_products %>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if no_products_found %>
-  <h2 class="products__results-title">
-    <%= t('spree.no_products_found') %>
-  </h2>
-<% elsif params.key?(:keywords) %>
-  <h1 class="products__results-title">
-    <%= t('spree.search_results', keywords: h(params[:keywords])) %>
-  </h1>
-<% end %>
+  <% if products.any? && params[:controller] == 'spree/products' %>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort Product
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><%= link_to "Newest", params.merge(sorting: :ascend_by_updated_at).to_unsafe_h %></li>
+        <li><%= link_to "Lowest price", params.merge(sorting: :ascend_by_master_price).to_unsafe_h %></li>
+        <li><%= link_to "Highest price", params.merge(sorting: :descend_by_master_price).to_unsafe_h %></li>
+      </div>
+    </div>
+  <% end %>
 
-<% if !no_products_found %>
-  <%= render 'spree/components/products/products-grid', products: products %>
-<% end %>
+  <% if no_products_found %>
+    <h2 class="products__results-title">
+      <%= t('spree.no_products_found') %>
+    </h2>
+    <% elsif params.key?(:keywords) %>
+      <h1 class="products__results-title">
+        <%= t('spree.search_results', keywords: h(params[:keywords])) %>
+      </h1>
+  <% end %>
 
-<% if paginated_products.respond_to?(:total_pages) %>
-  <%= paginate paginated_products %>
-<% end %>
+  <% if !no_products_found %>
+    <%= render 'spree/components/products/products-grid', products: products %>
+  <% end %>
+
+  <% if paginated_products.respond_to?(:total_pages) %>
+    <%= paginate paginated_products %>
+  <% end %>
