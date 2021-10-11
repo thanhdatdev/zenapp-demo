@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/solidusio-contrib/solidus_graphql_api
+  revision: 1ea45e9d92ab3077ce5c0cf30831b0bef18a73b5
+  specs:
+    solidus_graphql_api (0.1.0)
+      batch-loader (~> 2.0)
+      graphql (>= 1.10, < 1.12)
+      rails (~> 6.1)
+      solidus_core (>= 2.10, < 4)
+      solidus_support (~> 0.6)
+
+GIT
   remote: https://github.com/solidusio-contrib/solidus_reviews.git
   revision: ac66832b402c045eb0e38a49d3b24acb23af3b01
   specs:
@@ -95,6 +106,7 @@ GEM
       execjs (~> 2)
     awesome_nested_set (3.4.0)
       activerecord (>= 4.0.0, < 7.0)
+    batch-loader (2.0.1)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.9.1)
@@ -154,6 +166,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    graphql (1.11.8)
     handlebars_assets (0.23.9)
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
@@ -228,6 +241,10 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-attack (6.5.0)
+      rack (>= 1.0, < 3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-test (1.1.0)
@@ -417,6 +434,8 @@ DEPENDENCIES
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
+  rack-attack
+  rack-cors (~> 1.1)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-rails (~> 5.0)
@@ -428,6 +447,7 @@ DEPENDENCIES
   solidus_backend (~> 3.1)
   solidus_collaborators!
   solidus_core (~> 3.1)
+  solidus_graphql_api!
   solidus_paypal_commerce_platform
   solidus_reviews!
   solidus_sample (~> 3.1)

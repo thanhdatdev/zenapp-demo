@@ -1,1 +1,13 @@
 <%# solidus_auth_devise or a custom auth system can replace this partial %>
+<% if spree_current_user %>
+<li>
+    <%= link_to "Logout", api_user_path(spree_current_user) %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to "Login", api_users_path %>
+  </li>
+  <li>
+    <%= link_to "Register", new_api_user_path %>
+  </li>
+<% end %>

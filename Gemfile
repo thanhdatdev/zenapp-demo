@@ -12,6 +12,9 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 
+# Using RackAttack for security
+gem 'rack-attack'
+
 # Use bootstrap for modals
 gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
@@ -28,6 +31,9 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+# CORS policy
+gem 'rack-cors', '~> 1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,6 +71,7 @@ gem "rspec-rails", "~> 5.0", :groups => [:development, :test]
 gem 'solidus_auth_devise'
 gem 'solidus_paypal_commerce_platform'
 gem 'solidus_add_purchase_policies_to_admin_panel', path: '/Users/thanhdatdev/workspace/solidus_add_purchase_policies_to_admin_panel'
+gem "solidus_graphql_api", git: 'https://github.com/solidusio-contrib/solidus_graphql_api'
 gem 'solidus_collaborators', path: '/Users/thanhdatdev/workspace/solidus_collaborators'
 gem 'solidus_reviews', github: 'solidusio-contrib/solidus_reviews'
 gem 'canonical-rails'

@@ -3,19 +3,21 @@
 %>
 
 <% if variants.any? %>
-  <section class="product-variants" id="product-variants">
+  <section class="product-variants d-hide">
     <h2 class="product-variants__title">
       <%= t('spree.variants') %>
     </h2>
 
     <ul class="product-variants__list">
       <% variants.each_with_index do |variant, index| %>
-        <li>
+        <li class='d-hide'>
           <%= radio_button_tag(
             'variant_id',
             variant.id,
             index == 0,
-            'data-price' => variant.price_for(current_pricing_options)
+            "data-option-value-ids" => sorted_option_values(variant).to_json,
+            "data-target" => "variantOptions",
+            "data-price" => variant.price_for(current_pricing_options).to_html
           ) %>
 
           <%= label_tag "variant_id_#{ variant.id }" do %>
