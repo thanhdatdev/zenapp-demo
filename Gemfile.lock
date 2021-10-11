@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/solidusio-contrib/solidus_reviews.git
+  revision: ac66832b402c045eb0e38a49d3b24acb23af3b01
+  specs:
+    solidus_reviews (1.5.0)
+      solidus_core (>= 2.0.0, < 4)
+      solidus_support (~> 0.5)
+
 PATH
   remote: /Users/thanhdatdev/workspace/solidus_add_purchase_policies_to_admin_panel
   specs:
@@ -421,6 +429,7 @@ DEPENDENCIES
   solidus_collaborators!
   solidus_core (~> 3.1)
   solidus_paypal_commerce_platform
+  solidus_reviews!
   solidus_sample (~> 3.1)
   spring
   truncate_html

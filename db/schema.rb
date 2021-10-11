@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_171451) do
+ActiveRecord::Schema.define(version: 2021_10_11_024945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -265,6 +265,18 @@ ActiveRecord::Schema.define(version: 2021_10_08_171451) do
     t.datetime "updated_at", precision: 6
     t.string "sample_indicator_id"
     t.index ["sample_indicator_id"], name: "index_spree_customer_returns_on_sample_indicator_id"
+  end
+
+  create_table "spree_feedback_reviews", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "review_id", null: false
+    t.integer "rating", default: 0
+    t.text "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "locale", default: "en"
+    t.index ["review_id"], name: "index_spree_feedback_reviews_on_review_id"
+    t.index ["user_id"], name: "index_spree_feedback_reviews_on_user_id"
   end
 
   create_table "spree_inventory_units", id: :serial, force: :cascade do |t|
@@ -567,6 +579,8 @@ ActiveRecord::Schema.define(version: 2021_10_08_171451) do
     t.string "meta_title"
     t.datetime "discontinue_on"
     t.string "sample_indicator_id"
+    t.decimal "avg_rating", precision: 7, scale: 5, default: "0.0", null: false
+    t.integer "reviews_count", default: 0, null: false
     t.index ["available_on"], name: "index_spree_products_on_available_on"
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at"
     t.index ["name"], name: "index_spree_products_on_name"
@@ -887,6 +901,24 @@ ActiveRecord::Schema.define(version: 2021_10_08_171451) do
     t.datetime "updated_at", precision: 6
     t.string "sample_indicator_id"
     t.index ["sample_indicator_id"], name: "index_spree_return_reasons_on_sample_indicator_id"
+  end
+
+  create_table "spree_reviews", id: :serial, force: :cascade do |t|
+    t.integer "product_id"
+    t.string "name"
+    t.string "location"
+    t.integer "rating"
+    t.text "title"
+    t.text "review"
+    t.boolean "approved", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "user_id"
+    t.string "ip_address"
+    t.string "locale", default: "en"
+    t.boolean "show_identifier", default: true
+    t.boolean "verified_purchaser", default: false
+    t.index ["show_identifier"], name: "index_spree_reviews_on_show_identifier"
   end
 
   create_table "spree_roles", id: :serial, force: :cascade do |t|

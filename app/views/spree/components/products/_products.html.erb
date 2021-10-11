@@ -10,8 +10,8 @@
       <%= rel_next_prev_link_tags paginated_products %>
     <% end %>
   <% end %>
-
-  <% if products.any? && params[:controller] == 'spree/products' %>
+  
+  <% if products.any? && params[:controller] == 'spree/products' && params[:action] == 'index' %>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Sort Product
