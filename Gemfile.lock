@@ -1,4 +1,24 @@
 GIT
+  remote: https://github.com/nebulab/solidus_starter_frontend
+  revision: 31b4a997a48b214216f1076be51e9e00ec98c271
+  specs:
+    solidus_starter_frontend (0.1.0)
+      canonical-rails (~> 0.2.0)
+      solidus_api (>= 2.0, < 4)
+      solidus_auth_devise (~> 2.5)
+      solidus_core (>= 2.0.0, < 4)
+      solidus_support (~> 0.5)
+      truncate_html (~> 0.9, >= 0.9.2)
+
+GIT
+  remote: https://github.com/seand7565/solidus_user_guides
+  revision: 726a8e5455ad6de8292a475ca94816e07ad557fe
+  specs:
+    solidus_user_guides (0.0.1)
+      solidus_core (>= 2.0.0, < 3)
+      solidus_support (~> 0.4)
+
+GIT
   remote: https://github.com/solidusio-contrib/solidus_graphql_api
   revision: 1ea45e9d92ab3077ce5c0cf30831b0bef18a73b5
   specs:
@@ -194,12 +214,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    kt-paperclip (6.4.1)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      mime-types
-      mimemagic (~> 0.3.0)
-      terrapin (~> 0.6.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -217,7 +231,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_magick (4.11.0)
-    mini_mime (1.1.1)
+    mini_mime (1.1.2)
     minitest (5.14.4)
     monetize (1.11.0)
       money (~> 6.12)
@@ -228,6 +242,12 @@ GEM
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    paperclip (6.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      mime-types
+      mimemagic (~> 0.3.0)
+      terrapin (~> 0.6.0)
     paranoia (2.4.3)
       activerecord (>= 4.0, < 6.2)
     paypal-checkout-sdk (1.0.4)
@@ -321,11 +341,11 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    solidus_api (3.1.2)
+    solidus_api (2.11.11)
       jbuilder (~> 2.8)
       kaminari-activerecord (~> 1.1)
       responders
-      solidus_core (= 3.1.2)
+      solidus_core (= 2.11.11)
     solidus_auth_devise (2.5.3)
       deface (~> 1.0)
       devise (~> 4.1)
@@ -333,8 +353,8 @@ GEM
       paranoia (~> 2.4)
       solidus_core (>= 2.6, < 4)
       solidus_support (~> 0.5)
-    solidus_backend (3.1.2)
-      autoprefixer-rails (~> 10.2, >= 10.2.5.1)
+    solidus_backend (2.11.11)
+      autoprefixer-rails
       coffee-rails
       font-awesome-rails (~> 4.0)
       handlebars_assets (~> 0.23)
@@ -343,9 +363,9 @@ GEM
       kaminari (~> 1.1)
       responders
       sassc-rails
-      solidus_api (= 3.1.2)
-      solidus_core (= 3.1.2)
-    solidus_core (3.1.2)
+      solidus_api (= 2.11.11)
+      solidus_core (= 2.11.11)
+    solidus_core (2.11.11)
       actionmailer (>= 5.2, < 6.2.x)
       actionpack (>= 5.2, < 6.2.x)
       actionview (>= 5.2, < 6.2.x)
@@ -362,9 +382,10 @@ GEM
       friendly_id (~> 5.0)
       image_processing (~> 1.10)
       kaminari-activerecord (~> 1.1)
-      kt-paperclip (~> 6.3)
       mini_magick (~> 4.10)
       monetize (~> 1.8)
+      paperclip (>= 4.2)
+      paranoia (~> 2.4)
       railties (>= 5.2, < 6.2.x)
       ransack (~> 2.0)
       state_machines-activerecord (~> 0.6)
@@ -374,8 +395,8 @@ GEM
       solidus_core (>= 2.0.0, < 4)
       solidus_support (>= 0.8.0, < 1)
       solidus_webhooks (~> 0.2)
-    solidus_sample (3.1.2)
-      solidus_core (= 3.1.2)
+    solidus_sample (2.11.11)
+      solidus_core (= 2.11.11)
     solidus_support (0.8.1)
     solidus_webhooks (0.4.0)
       solidus_core (>= 2.0.0, < 4)
@@ -400,6 +421,9 @@ GEM
     thor (1.1.0)
     tilt (2.0.10)
     truncate_html (0.9.3)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -429,6 +453,7 @@ DEPENDENCIES
   byebug
   canonical-rails
   capybara (>= 3.26)
+  coffee-rails (~> 5.0)
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
@@ -442,17 +467,20 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   solidus_add_purchase_policies_to_admin_panel!
-  solidus_api (~> 3.1)
+  solidus_api
   solidus_auth_devise
-  solidus_backend (~> 3.1)
+  solidus_backend
   solidus_collaborators!
-  solidus_core (~> 3.1)
+  solidus_core
   solidus_graphql_api!
   solidus_paypal_commerce_platform
   solidus_reviews!
-  solidus_sample (~> 3.1)
+  solidus_sample
+  solidus_starter_frontend!
+  solidus_user_guides!
   spring
   truncate_html
+  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers

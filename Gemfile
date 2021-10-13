@@ -19,6 +19,10 @@ gem 'rack-attack'
 gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 5.0'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -62,10 +66,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "solidus_core", "~> 3.1"
-gem "solidus_backend", "~> 3.1"
-gem "solidus_api", "~> 3.1"
-gem "solidus_sample", "~> 3.1"
+gem "solidus_core"
+gem "solidus_backend"
+gem "solidus_api"
+gem "solidus_sample"
+gem "solidus_starter_frontend", git: 'https://github.com/nebulab/solidus_starter_frontend'
+gem "solidus_user_guides", git: 'https://github.com/seand7565/solidus_user_guides'
 
 gem "rspec-rails", "~> 5.0", :groups => [:development, :test]
 gem 'solidus_auth_devise'

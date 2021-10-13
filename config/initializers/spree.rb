@@ -1,8 +1,6 @@
 # Configure Solidus Preferences
 # See http://docs.solidus.io/Spree/AppConfiguration.html for details
 # Solidus version defaults for preferences that are not overridden
-Spree.load_defaults '3.1.2'
-
 require_relative Rails.root.join('lib/solidus_starter_frontend/config')
 Spree.config do |config|
   # Core:
@@ -21,8 +19,8 @@ Spree.config do |config|
   # config.inventory_cache_threshold = 3
 
   # Configure adapter for attachments on products and taxons (use ActiveStorageAttachment or PaperclipAttachment)
-  config.image_attachment_module = 'Spree::Image::ActiveStorageAttachment'
-  config.taxon_attachment_module = 'Spree::Taxon::ActiveStorageAttachment'
+  config.image_attachment_module = 'Spree::Image::PaperclipAttachment'
+  config.taxon_attachment_module = 'Spree::Taxon::PaperclipAttachment'
 
   # Defaults
   # Permission Sets:
@@ -38,7 +36,7 @@ Spree.config do |config|
     config.locale = 'en'
   end
   # Custom logo for the frontend
-  config.logo = "logo/zenapp_logo.png"
+  config.logo = "logo/zenapp-logo.png"
 
   # Template to use when rendering layout
   # config.layout = "spree/layouts/spree_application"
@@ -47,7 +45,7 @@ Spree.config do |config|
   # Admin:
 
   # Custom logo for the admin
-  config.admin_interface_logo = "logo/zenapp_logo.png"
+  config.admin_interface_logo = "logo/zenapp-logo.png"
 
   # Gateway credentials can be configured statically here and referenced from
   # the admin. They can also be fully configured from the admin.

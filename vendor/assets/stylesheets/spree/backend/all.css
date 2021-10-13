@@ -6,6 +6,10 @@
  *= require spree/backend
  *= require_self
  *= require_tree .
+ *= require spree/shared/bootstrap_import
+ *= require demo_style
+ *= require guided_tour
+ *= require spree/backend/solidus_user_guides
  *= require spree/backend/solidus_paypal_commerce_platform
  *= require spree/backend/solidus_reviews
 */

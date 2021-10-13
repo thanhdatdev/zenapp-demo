@@ -9,6 +9,7 @@
       </div>
 
       <div class="product-page__info">
+        <%= render 'spree/components/products/product_header' %>
         <%= render 'spree/components/products/product_promotions' %>
         <%= render 'spree/components/products/product_form' %>
         <%= render 'spree/components/products/product_taxons' %>
@@ -25,7 +26,11 @@
       <%= render partial: 'spree/components/products/products', locals: { products: @similar_products } %>
     </div>
 
-      <%= link_to 'Reviews', api_user_reviews_path(spree_current_user)%>
-
+    <div data-hook="product_properties">
+      <% render partial: 'spree/shared/rating', locals: {product: @product}%>
+    </div>
+    <% if !spree_current_user %>
+      <%= link_to 'Sign in to review this product', account_path %>
+    <% end %>
   </article>
 <% end %>
